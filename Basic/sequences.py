@@ -16,3 +16,11 @@ def gc_content(dna_seq):
     for s in dna_seq:
         if s in "GCgc" : gc_count += 1  
     return gc_count / len(dna_seq)
+
+def gc_content_subseq(dna_seq, k=10):
+    res = []
+    for i in range(0, len(dna_seq)-k+1, k):
+        subseq = dna_seq[i:i+k]
+        gc = gc_content(subseq)
+        res.append(gc)
+    return res  
